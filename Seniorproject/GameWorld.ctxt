@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=GameWorld
+comment0.text=\n\ Write\ a\ description\ of\ class\ GameWorld\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=GameWorld()
+comment2.params=
+comment2.target=void\ setUp()
+comment3.params=
+comment3.target=void\ act()
+comment4.params=
+comment4.target=void\ addBalls()
+comment5.params=
+comment5.target=void\ updateHearts()
+comment6.params=
+comment6.target=void\ playerDead()
+comment7.params=
+comment7.target=void\ timerLoop()
+comment8.params=
+comment8.target=void\ addZombie()
+comment9.params=
+comment9.target=void\ addStandingZombie()
+numComments=10

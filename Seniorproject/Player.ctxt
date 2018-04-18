@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Player
+comment0.text=\n\ Write\ a\ description\ of\ class\ Player\ here.\n\ \n\ @author\ Orel\ Yehuda\ \n\ @version\ hehexd123\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ checkTouching()
+comment3.params=
+comment3.target=int\ getLives()
+comment4.params=
+comment4.target=void\ movement()
+numComments=5
