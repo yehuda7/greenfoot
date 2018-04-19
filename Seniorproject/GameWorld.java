@@ -8,11 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GameWorld extends World
 {
-
-    /**
-     * Constructor for objects of class GameWorld.
-     * 
-     */
+    private boolean alive = true;
     private GameLoop loop = new GameLoop();
     private Player player = new Player();
     
@@ -22,6 +18,10 @@ public class GameWorld extends World
     
     private int gate = -1;
     
+    private Score sb = new Score();
+    private HighScore hsb = new HighScore();
+    private static int highScore = 0;
+    
     public GameWorld()
     {    
         super(1024, 576, 1, false);
@@ -29,6 +29,7 @@ public class GameWorld extends World
     }
     
     private void setUp(){
+        hsb.setScore(highScore);
         addObject(player,640,360);
         
         addObject(h1,50,50);
@@ -36,6 +37,9 @@ public class GameWorld extends World
         addObject(h3,170,50);
         
         addObject(loop,-20,0);
+        
+        addObject(sb, 500,50);
+        addObject(hsb, 500,66);
         
         StandingZombie z = new StandingZombie();
         addObject(z,Greenfoot.getRandomNumber(1000),Greenfoot.getRandomNumber(550));
@@ -46,16 +50,21 @@ public class GameWorld extends World
     }
     
     public void act(){
-        timerLoop();
+        updateScore();
+        timerLoop(300);
         updateHearts();
         addBalls();
+    }
+    
+    private void updateScore(){
+        sb.setScore(player.getScore());
     }
     
     private void addBalls(){
         int s = getObjects(Ball.class).size();
         if(s == 0){
             Ball b = new Ball();
-            addObject(b,Greenfoot.getRandomNumber(1000),Greenfoot.getRandomNumber(550));
+            addObject(b,Greenfoot.getRandomNumber(900),Greenfoot.getRandomNumber(500));
         }
     }
     
@@ -85,11 +94,15 @@ public class GameWorld extends World
         }
     }
     private void playerDead(){
+        alive = false;
+        if(player.getScore() > highScore){
+            highScore = player.getScore();
+        }
         Greenfoot.setWorld(new StartingScreen());
     }
    
-    private void timerLoop(){
-        if(loop.getTimer() > 300){
+    private void timerLoop(int speed){
+        if(loop.getTimer() > speed){
             if(gate == 1){
                 addZombie();
             }

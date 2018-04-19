@@ -3,16 +3,16 @@ import greenfoot.*;
 /**
  * 
  */
-public class Score extends Actor
+public class HighScore extends Actor
 {
     public int score;
 
     /**
      * 
      */
-    public Score()
+    public HighScore()
     {
-        update ( );
+        update();
     }
 
     /**
@@ -21,7 +21,7 @@ public class Score extends Actor
     public void addScore(int pn)
     {
         score = score + pn;
-        update ( );
+        update();
     }
 
     /**
@@ -38,7 +38,7 @@ public class Score extends Actor
     public void setScore(int s)
     {
         score = s;
-        update ( );
+        update ();
     }
 
     /**
@@ -46,6 +46,6 @@ public class Score extends Actor
      */
     public void update()
     {
-        setImage ( new GreenfootImage ( "Score: " + score , 18 , Color . BLACK , Color . WHITE ) );
+        setImage ( new GreenfootImage ( "High Score: " + score , 14 , Color . BLACK , Color . WHITE ) );
     }
 }

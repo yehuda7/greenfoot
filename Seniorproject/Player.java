@@ -11,12 +11,11 @@ public class Player extends Actor
    private final int SPEED = 4;
    private int facing  = 0;
    private int lives = 3;
-   private Score sb = new Score();
+   private int score = 0;
    
    
     public void act() 
     {
-        getWorld().addObject(sb, 500,50);
         movement();
         checkTouching();
     }
@@ -32,9 +31,12 @@ public class Player extends Actor
        }
        if(isTouching(Ball.class)){
           removeTouching(Ball.class);
-          sb.addScore(1);
+          score++;
        }
-        
+    }
+    
+    public int getScore(){
+        return score;
     }
     
     public int getLives(){
