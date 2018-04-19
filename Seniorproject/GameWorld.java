@@ -45,15 +45,18 @@ public class GameWorld extends World
         addObject(z,Greenfoot.getRandomNumber(1000),Greenfoot.getRandomNumber(550));
         StandingZombie z1 = new StandingZombie();
         addObject(z1,Greenfoot.getRandomNumber(1000),Greenfoot.getRandomNumber(550));
-        StandingZombie z2 = new StandingZombie();
-        addObject(z2,Greenfoot.getRandomNumber(1000),Greenfoot.getRandomNumber(550));
     }
     
     public void act(){
+        waves();
         updateScore();
-        timerLoop(300);
         updateHearts();
         addBalls();
+    }
+    private void waves(){
+        if(player.getScore() < 10){
+            timerLoop(300);
+        }
     }
     
     private void updateScore(){
@@ -107,7 +110,7 @@ public class GameWorld extends World
                 addZombie();
             }
             addStandingZombie();
-            loop.setTimer(100);
+            loop.setTimer(50);
             gate = gate*-1;
         }
     }

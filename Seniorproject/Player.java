@@ -47,22 +47,22 @@ public class Player extends Actor
         int x = getX();
         int y = getY();
         
-        if(Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w") && y > 10)  
+        if(Greenfoot.isKeyDown("up") && y > 10 || Greenfoot.isKeyDown("w") && y > 10)  
         {  
             y -= SPEED;
             facing = 0;
         }
-         if(Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s") && y <560)  
+         if(Greenfoot.isKeyDown("down") && y <560 || Greenfoot.isKeyDown("s") && y <560)  
         {  
             y += SPEED;
             facing = 1;
         }
-         if(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a") && x > 3)  
+         if(Greenfoot.isKeyDown("left") && x > 3 || Greenfoot.isKeyDown("a") && x > 3)  
         {  
             x -= SPEED;
             facing = 2;
         }
-         if(Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d") && x < 1020)  
+         if(Greenfoot.isKeyDown("right") && x < 1020 || Greenfoot.isKeyDown("d") && x < 1020)  
         {  
             x += SPEED;
             facing = 3;
